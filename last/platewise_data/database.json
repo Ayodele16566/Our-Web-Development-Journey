@@ -1,0 +1,196 @@
+{
+  "users": [
+    {
+      "id": "1789298188628",
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "secret",
+      "createdAt": "2026-09-13T11:16:28.628Z"
+    },
+    {
+      "id": "1789298321917",
+      "name": "Test User",
+      "email": "test4@example.com",
+      "password": "secret",
+      "createdAt": "2026-09-13T11:18:41.917Z"
+    },
+    {
+      "id": "1789298846611",
+      "name": "Fresh Server",
+      "email": "fresh@example.com",
+      "password": "secret",
+      "createdAt": "2026-09-13T11:27:26.611Z"
+    }
+  ],
+  "plans": [
+    {
+      "userEmail": "fresh@example.com",
+      "goal": "Eat balanced Nigerian meals",
+      "meals": [
+        "Chicken Jollof and Plantain",
+        "Brown Rice and Chicken Stew"
+      ],
+      "createdAt": "2026-09-14T12:08:27.812Z"
+    },
+    {
+      "userEmail": "fresh@example.com",
+      "goal": "Eat balanced Nigerian meals",
+      "meals": [
+        "Chicken Jollof and Plantain",
+        "Brown Rice and Chicken Stew"
+      ],
+      "createdAt": "2026-09-14T12:09:54.705Z"
+    },
+    {
+      "userEmail": "fresh@example.com",
+      "goal": "Eat balanced Nigerian meals",
+      "meals": [
+        "Chicken Jollof and Plantain",
+        "Brown Rice and Chicken Stew"
+      ],
+      "createdAt": "2026-09-14T12:31:50.774Z"
+    }
+  ],
+  "mealLibrary": [
+    {
+      "name": "Chicken Jollof and Plantain",
+      "category": "Carbohydrates and Protein",
+      "carbohydrates": "62g",
+      "protein": "34g",
+      "fats": "18g",
+      "fiber": "12g",
+      "foodType": "Nigerian",
+      "description": "Jollof rice with chicken, tomato stew, onions, peppers, and plantain."
+    },
+    {
+      "name": "Beans Porridge and Plantain",
+      "category": "Protein and Fiber",
+      "carbohydrates": "45g",
+      "protein": "28g",
+      "fats": "16g",
+      "fiber": "16g",
+      "foodType": "Nigerian",
+      "description": "Beans cooked with palm oil, tomato, pepper, onions, and plantain."
+    },
+    {
+      "name": "Yam Porridge with Chicken",
+      "category": "Carbohydrates and Protein",
+      "carbohydrates": "56g",
+      "protein": "30g",
+      "fats": "20g",
+      "fiber": "10g",
+      "foodType": "Nigerian",
+      "description": "Yam cooked with chicken, vegetables, pepper, and broth."
+    },
+    {
+      "name": "Brown Rice and Chicken Stew",
+      "category": "Carbohydrates and Protein",
+      "carbohydrates": "61g",
+      "protein": "33g",
+      "fats": "15g",
+      "fiber": "11g",
+      "foodType": "Nigerian",
+      "description": "Brown rice served with chicken stew and vegetables."
+    },
+    {
+      "name": "Eba with Okro Soup",
+      "category": "Carbohydrates and Fiber",
+      "carbohydrates": "57g",
+      "protein": "25g",
+      "fats": "14g",
+      "fiber": "14g",
+      "foodType": "Nigerian",
+      "description": "Eba served with okro soup, fish or meat, and vegetables."
+    },
+    {
+      "name": "Amala with Ewedu and Goat Meat",
+      "category": "Carbohydrates and Protein",
+      "carbohydrates": "59g",
+      "protein": "31g",
+      "fats": "17g",
+      "fiber": "13g",
+      "foodType": "Nigerian",
+      "description": "Amala served with ewedu soup, goat meat and vegetable stew."
+    },
+    {
+      "name": "Afang Soup with Fufu",
+      "category": "Fiber and Protein",
+      "carbohydrates": "40g",
+      "protein": "22g",
+      "fats": "16g",
+      "fiber": "15g",
+      "foodType": "Nigerian",
+      "description": "Fufu paired with afang soup made with wild spinach, goat meat, and fish."
+    },
+    {
+      "name": "Moi Moi with Plantain",
+      "category": "Protein and Carbohydrates",
+      "carbohydrates": "50g",
+      "protein": "26g",
+      "fats": "14g",
+      "fiber": "11g",
+      "foodType": "Nigerian",
+      "description": "Steamed bean pudding with plantain, pepper, onions, and vegetable oil."
+    },
+    {
+      "name": "Oha Soup with Yam Porridge",
+      "category": "Fiber and Carbohydrates",
+      "carbohydrates": "55g",
+      "protein": "23g",
+      "fats": "19g",
+      "fiber": "13g",
+      "foodType": "Nigerian",
+      "description": "Oha soup made with leafy vegetables, yam porridge, and protein-rich meat."
+    },
+    {
+      "name": "Grilled Tilapia with Boiled Yam",
+      "category": "Protein and Carbohydrates",
+      "carbohydrates": "48g",
+      "protein": "35g",
+      "fats": "17g",
+      "fiber": "9g",
+      "foodType": "Nigerian",
+      "description": "Tilapia fish grilled with pepper and served with boiled yam and vegetables."
+    },
+    {
+      "name": "Ofada Rice with Ayamase Stew",
+      "category": "Carbohydrates and Protein",
+      "carbohydrates": "58g",
+      "protein": "32g",
+      "fats": "16g",
+      "fiber": "10g",
+      "foodType": "Nigerian",
+      "description": "Local rice cooked with Ayamase stew, green pepper, meat, and vegetables."
+    },
+    {
+      "name": "Pounded Yam with Egusi Soup",
+      "category": "Carbohydrates and Fiber",
+      "carbohydrates": "55g",
+      "protein": "24g",
+      "fats": "20g",
+      "fiber": "14g",
+      "foodType": "Nigerian",
+      "description": "Pounded yam with egusi soup, meat, fish, and traditional leafy vegetable richness."
+    },
+    {
+      "name": "Gizdodo and Plantain",
+      "category": "Protein and Carbohydrates",
+      "carbohydrates": "47g",
+      "protein": "25g",
+      "fats": "19g",
+      "fiber": "8g",
+      "foodType": "Nigerian",
+      "description": "Gizzards and diced chicken cooked with tomato, plantain, onions, and hot peppers."
+    },
+    {
+      "name": "Puff Puff and Pepper Sauce",
+      "category": "Carbohydrates and Fats",
+      "carbohydrates": "46g",
+      "protein": "12g",
+      "fats": "21g",
+      "fiber": "5g",
+      "foodType": "Nigerian",
+      "description": "Soft fried dough served with pepper sauce and a fresh vegetable side."
+    }
+  ]
+}

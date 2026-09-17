@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operation Siege</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <div class="hud">
+        <div class="hud-item">
+          <span class="label">Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="hud-item">
+          <span class="label">Health</span>
+          <strong id="health">100</strong>
+        </div>
+        <div class="hud-item">
+          <span class="label">Wave</span>
+          <strong id="wave">1</strong>
+        </div>
+        <div class="hud-item">
+          <span class="label">Weapon</span>
+          <strong id="weapon">Rifle</strong>
+        </div>
+        <div class="hud-item">
+          <span class="label">Ammo</span>
+          <strong id="ammo">30 / 90</strong>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas" width="900" height="600"></canvas>
+
+      <div id="overlay" class="overlay visible">
+        <div class="panel">
+          <p class="small-title">OPERATION</p>
+          <h1>Strike Front</h1>
+          <p class="instructions">Move with WASD or arrow keys. Aim with the mouse. Click, Space, or hold fire to engage the enemy. Press R to reload.</p>
+          <button id="startButton">Deploy</button>
+        </div>
+      </div>
+    </div>
+
+    <a class="portfolio-return" href="../index.html" style="display:block;margin:24px auto 36px;max-width:240px;padding:14px 18px;border:1px solid #c9f26b;border-radius:999px;color:#c9f26b;text-align:center;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;">← Return to portfolio</a>
+    <script src="game.js"></script>
+  </body>
+</html>

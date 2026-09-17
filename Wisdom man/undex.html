@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veloura Gallery — Art Store</title>
+  <meta name="description" content="A refined art gallery website with a searchable home page, new products page, and contact page." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#d1d1d1;
+      --paper:#f18bbe;
+      --ink:#171412;
+      --muted:#6a6158;
+      --line:rgba(23,20,18,.12);
+      --accent:#8d4d31;
+      --accent-2:#30473f;
+      --gold:#b7925d;
+      --soft-shadow:0 14px 40px rgba(34,25,18,.08);
+      --deep-shadow:0 20px 60px rgba(34,25,18,.14);
+      --radius:24px;
+      --max:1320px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:"Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(183,146,93,.10), transparent 18%),
+        radial-gradient(circle at 90% 12%, rgba(48,71,63,.08), transparent 20%),
+        linear-gradient(180deg, #f8f3ed 0%, var(--bg) 100%);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+
+    .wrap{
+      width:min(calc(100% - 2rem), var(--max));
+      margin-inline:auto;
+    }
+
+    .page{display:none}
+    .page.active{
+      display:block;
+      animation:pageIn .45s ease;
+    }
+
+    @keyframes pageIn{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(251,248,242,.74);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav .wrap{
+      min-height:78px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+
+    .brand{
+      font-family:"DM Serif Display", serif;
+      font-size:clamp(1.7rem, 2.5vw, 2.2rem);
+      letter-spacing:.02em;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:.5rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .nav-links button{
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      padding:.8rem 1rem;
+      border-radius:999px;
+      cursor:pointer;
+      transition:all .25s ease;
+    }
+
+    .nav-links button:hover,
+    .nav-links button.active{
+      background:rgba(23,20,18,.06);
+      color:var(--ink);
+      transform:translateY(-2px);
+    }
+
+    header{
+      padding:clamp(2rem, 5vw, 4rem) 0 2rem;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.2rem;
+      align-items:end;
+    }
+
+    .eyebrow{
+      margin:0 0 1rem;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      color:var(--accent);
+      font-size:.76rem;
+      font-weight:800;
+    }
+
+    h1,h2,h3{
+      margin:0;
+      font-family:"DM Serif Display", serif;
+      line-height:.94;
+      font-weight:400;
+    }
+
+    h1{font-size:clamp(3.5rem, 10vw, 7rem); max-width:8ch}
+    h2{font-size:clamp(2.3rem, 6vw, 4.6rem)}
+    h3{font-size:clamp(1.3rem, 2vw, 1.75rem)}
+
+    p{
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .panel,
+    .art-frame,
+    .search-shell,
+    .product,
+    .contact-box{
+      background:rgba(255,255,255,.5);
+      border:1px solid rgba(23,20,18,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--soft-shadow);
+      backdrop-filter:blur(10px);
+    }
+
+    .search-shell{
+      padding:1rem;
+      margin-top:1.5rem;
+    }
+
+    .search-bar{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:.8rem;
+    }
+
+    .search-bar input{
+      border:1px solid rgba(23,20,18,.12);
+      background:#fffdf9;
+      border-radius:18px;
+      padding:1rem 1.1rem;
+      color:var(--ink);
+      outline:none;
+    }
+
+    .search-bar input:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(141,77,49,.10);
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:1rem 1.25rem;
+      transition:all .25s ease;
+    }
+
+    .btn-primary{
+      background:var(--ink);
+      color:white;
+      box-shadow:0 14px 30px rgba(23,20,18,.18);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px) scale(1.02);
+      background:#0d0b0a;
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.6);
+      color:var(--ink);
+      border:1px solid var(--line);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-3px);
+      background:white;
+    }
+
+    .hero-art{
+      display:grid;
+      grid-template-columns:1fr .82fr;
+      gap:1rem;
+    }
+
+    .art-frame{
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+    }
+
+    .art-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .8s ease;
+    }
+
+    .art-frame:hover img{
+      transform:scale(1.05);
+    }
+
+    .art-frame::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:38%;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.24));
+      pointer-events:none;
+    }
+
+    .big{min-height:520px}
+    .small{min-height:250px}
+    .stack{display:grid;gap:1rem}
+
+    .caption{
+      position:absolute;
+      left:1rem;
+      right:1rem;
+      bottom:1rem;
+      z-index:1;
+      color:white;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    .section{
+      padding:clamp(2rem, 6vw, 5rem) 0;
+    }
+
+    .intro{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:2rem;
+      align-items:start;
+      margin-bottom:1.5rem;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:1rem;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1rem;
+      margin-top:1rem;
+    }
+
+    .info-strip article{
+      padding:1.2rem;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1rem;
+    }
+
+    .product{
+      overflow:hidden;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .product:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--deep-shadow);
+    }
+
+    .product img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+    }
+
+    .product-body{
+      padding:1rem 1rem 1.2rem;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-bottom:.6rem;
+      color:var(--accent);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .price{
+      color:var(--accent);
+      font-weight:800;
+      margin:.55rem 0 1rem;
+    }
+
+    .contact-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    .contact-box{
+      padding:1.25rem;
+    }
+
+    form{
+      display:grid;
+      gap:1rem;
+    }
+
+    .field-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    label{
+      display:grid;
+      gap:.45rem;
+      color:var(--ink);
+      font-size:.94rem;
+      font-weight:600;
+    }
+
+    input,textarea{
+      border:1px solid rgba(23,20,18,.12);
+      background:#fffdf9;
+      border-radius:18px;
+      padding:1rem;
+      color:var(--ink);
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+
+    textarea{
+      min-height:160px;
+      resize:vertical;
+    }
+
+    input:focus,textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(141,77,49,.10);
+    }
+    .btn-btn{
+      border-radius: 23px;
+      border: none;
+      color: #222121;
+
+    }
+
+    .mini-gallery{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:1rem;
+      margin-top:1rem;
+    }
+
+    footer{
+      margin-top:2rem;
+      border-top:1px solid var(--line);
+      padding:1.4rem 0 2.2rem;
+    }
+
+    footer .wrap{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    footer p{
+      margin:0;
+      font-size:.94rem;
+    }
+
+    @media (max-width: 980px){
+      .hero,
+      .intro,
+      .featured-grid,
+      .contact-layout{
+        grid-template-columns:1fr;
+      }
+
+      .hero-art{
+        grid-template-columns:1fr;
+      }
+
+      .product-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .info-strip{
+        grid-template-columns:1fr;
+      }
+    }
+    @media (max-width: 720px) {
+  nav .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav .nav-links button {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-art {
+    grid-template-columns: 1fr !important;
+  }
+
+  .search-bar {
+    grid-template-columns: 1fr !important;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mini-gallery {
+    grid-template-columns: 1fr !important;
+  }
+
+  h1 {
+    font-size: 2.8rem !important;
+  }
+
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  h3 {
+    font-size: 1.3rem !important;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+  <nav>
+    <section class="wrap">
+      <a href="#" class="brand" data-link="home">Digital Gallery</a>
+      <section class="nav-links" aria-label="Primary navigation">
+        <button class="active" data-page="home">Home</button>
+        <button data-page="products">New Products</button>
+        <button data-page="contact">Contact</button>
+        <button data-page="VIEW" class="btn-btn">view art</button>
+      </section>
+    </section>
+  </nav>
+
+  <main>
+    <section class="page active" id="home">
+      <header class="wrap">
+        <section class="hero">
+          <article class="reveal">
+            <p class="eyebrow">Fine art / curated online gallery</p>
+            <h1>Discover art worth living with.</h1>
+            <p>
+              A refined art storefront with a searchable first page, a dedicated new products page,
+              and a contact page for collectors, commissions, and gallery inquiries.
+            </p>
+
+            <section class="search-shell">
+              <form class="search-bar" role="search">
+                <input type="search" placeholder="Search artworks, artists, prints, abstracts..." aria-label="Search artworks" />
+                <button class="btn btn-primary" type="submit">Search</button>
+              </form>
+            </section>
+            
+
+            <section style="display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1rem;">
+              <button class="btn-btn"><a href="http://127.0.0.1:5501/ghh.html">View art works</a></button>
+              <button class="btn btn-secondary" data-page="contact">Contact gallery</button>
+             
+            </section>
+          </article>
+
+          <section class="hero-art reveal" aria-label="Featured art">
+            <figure class="art-frame big">
+              <img alt="Classical painting style artwork"
+                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80">
+              <figcaption class="caption">Featured exhibition</figcaption>
+            </figure>
+
+            <article class="stack">
+              <figure class="art-frame small">
+                <img alt="Modern fine art painting"
+                  src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=80">
+                <figcaption class="caption">Contemporary wall piece</figcaption>
+              </figure>
+
+              <figure class="art-frame small">
+                <img alt="Gallery artwork closeup"
+                  src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80">
+                <figcaption class="caption">Collector selection</figcaption>
+              </figure>
+            </article>
+          </section>
+        </section>
+      </header>
+
+      <section class="section wrap reveal">
+        <article class="intro">
+          <h2>Art-led, warm, and image-rich.</h2>
+          <p>
+            This homepage is built around real images and elegant typography. Instead of a plain e-commerce feel,
+            it opens like an editorial gallery, with a search bar up front so visitors can immediately look for
+            the styles they love.
+          </p>
+        </article>
+
+        <section class="featured-grid">
+          <figure class="art-frame big">
+            <img alt="Abstract painting in warm tones"
+              src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&w=1200&q=80">
+            <figcaption class="caption">Abstract atmospheres</figcaption>
+          </figure>
+
+          <article class="stack">
+            <section class="split">
+              <figure class="art-frame small">
+                <img alt="Painted artwork hanging on wall"
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80">
+              </figure>
+              <figure class="art-frame small">
+                <img alt="Framed fine art in studio"
+                  src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80">
+              </figure>
+            </section>
+
+            <article class="panel" style="padding:1.2rem 1.3rem;">
+              <span class="tag">Gallery note</span>
+              <p style="margin:0;">
+                Explore newly added works, limited prints, and collector-ready originals through the next pages.
+              </p>
+            </article>
+          </article>
+        </section>
+
+        <section class="info-strip">
+          <article class="panel">
+            <span class="tag">Originals</span>
+            <p style="margin:0;">Curated one-of-one works chosen for texture, mood, and room presence.</p>
+          </article>
+          <article class="panel">
+            <span class="tag">Prints</span>
+            <p style="margin:0;">Museum-grade reproductions for collectors who want timeless pieces at accessible prices.</p>
+          </article>
+          <article class="panel">
+            <span class="tag">Commissions</span>
+            <p style="margin:0;">Request custom pieces for homes, studios, hospitality spaces, or private collections.</p>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="products">
+      <section class="section wrap">
+        <article class="intro reveal">
+          <h2>New products.</h2>
+          <p>
+            Fresh arrivals selected for collectors who want new conversation pieces.
+            A focused product page with real art images, clean pricing, and quick purchase actions.
+          </p>
+        </article>
+        
+
+        <section class="product-grid reveal">
+          <article class="product">
+            <img alt="New artwork one"
+              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">New arrival</span>
+              <h3>Silent Bloom</h3>
+              <p>Mixed tones, soft composition, and a calm gallery presence.</p>
+              <p class="price">$280</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+
+          <article class="product">
+            <img alt="New artwork two"
+              src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">Limited print</span>
+              <h3>Blue Reverie</h3>
+              <p>Expressive brushwork and a dramatic vertical composition.</p>
+              <p class="price">$190</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+
+          <article class="product">
+            <img alt="New artwork three"
+              src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">Collector pick</span>
+              <h3>Ochre Study</h3>
+              <p>Warm, earthy abstraction suited for understated interiors.</p>
+              <p class="price">$340</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+
+          <article class="product">
+            <img alt="New artwork four"
+              src="https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">Studio release</span>
+              <h3>Figure in Light</h3>
+              <p>A painterly scene balancing intimacy, shadow, and softness.</p>
+              <p class="price">$420</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+
+          <article class="product">
+            <img alt="New artwork five"
+              src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">Wall favorite</span>
+              <h3>Gallery Drift</h3>
+              <p>Minimal, modern, and curated for elegant contemporary spaces.</p>
+              <p class="price">$230</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+
+          <article class="product">
+            <img alt="New artwork six"
+              src="https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?auto=format&fit=crop&w=1000&q=80">
+            <section class="product-body">
+              <span class="tag">Fresh drop</span>
+              <h3>Soft Geometry</h3>
+              <p>Structured shapes with a warm palette and quiet luxury energy.</p>
+              <p class="price">$260</p>
+              <button class="btn btn-primary">Buy now</button>
+            </section>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="contact">
+      <section class="section wrap">
+        <article class="intro reveal">
+          <h2>Contact the gallery.</h2>
+          <p>
+            Reach out for commissions, buying assistance, framing questions, exhibition requests,
+            or help finding the right work for your space.
+          </p>
+        </article>
+
+        <section class="contact-layout reveal">
+          <article class="contact-box">
+            <form>
+              <section class="field-row">
+                <label>
+                  First name
+                  <input type="text" placeholder="First name" />
+                </label>
+                <label>
+                  Last name
+                  <input type="text" placeholder="Last name" />
+                </label>
+              </section>
+
+              <section class="field-row">
+                <label>
+                  Email
+                  <input type="email" placeholder="you@example.com" />
+                </label>
+                <label>
+                  Phone
+                  <input type="tel" placeholder="+1 555 000 0000" />
+                </label>
+              </section>
+
+              <label>
+                Message
+                <textarea placeholder="Tell us which artwork or service you're interested in..."></textarea>
+              </label>
+
+              <button class="btn btn-primary" type="submit">Send message</button>
+            </form>
+          </article>
+
+          <aside class="contact-box">
+            <span class="tag">Visit / inquire</span>
+            <h3 style="margin-bottom:1rem;">Veloura Gallery Studio</h3>
+            <p style="margin-top:0;">hello@velouragallery.com</p>
+            <p>+1 (555) 218-4402</p>
+            <p>Open Tuesday–Saturday / 11:00 AM–7:00 PM</p>
+            <p>
+              We help collectors source statement pieces, coordinate commissions,
+              and preview artworks for residential or hospitality settings.
+            </p>
+
+            <section class="mini-gallery">
+              <figure class="art-frame small">
+                <img alt="Studio interior art"
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80">
+              </figure>
+              <figure class="art-frame small">
+                <img alt="Gallery wall installation"
+                  src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80">
+              </figure>
+            </section>
+          </aside>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <section class="wrap">
+      <p>Veloura Gallery — Home, New Products, Contact</p>
+      <p>Searchable art storefront concept</p>
+    </section>
+  </footer>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const navButtons = document.querySelectorAll('[data-page]');
+    const brand = document.querySelector('[data-link="home"]');
+
+    function showPage(pageId){
+      pages.forEach(page => page.classList.toggle('active', page.id === pageId));
+      navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.page === pageId));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(setRevealObservers, 100);
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => showPage(button.dataset.page));
+    });
+
+    brand.addEventListener('click', (e) => {
+      e.preventDefault();
+      showPage('home');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.16 });
+
+    function setRevealObservers(){
+      document.querySelectorAll('.page.active .reveal').forEach(el => observer.observe(el));
+    }
+
+    setRevealObservers();
+  </script>
+</body>
+</html>

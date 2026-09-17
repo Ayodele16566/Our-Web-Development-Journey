@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlateWise Signup</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="plate-auth-body">
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="auth-brand">
+        <span class="brand-icon">P</span>
+        <span class="brand-text">PlateWise</span>
+      </div>
+
+      <div class="auth-head">
+        <span class="auth-kicker">Create account</span>
+        <h1>Create your PlateWise account</h1>
+        <p>Save your goals and build your Nigerian meal plan.</p>
+      </div>
+
+      <form id="signupForm" class="auth-form">
+        <label class="auth-label" for="name">Full name</label>
+        <input class="auth-input" id="name" name="name" type="text" placeholder="Your name" required>
+
+        <label class="auth-label" for="email">Email</label>
+        <input class="auth-input" id="email" name="email" type="email" placeholder="you@example.com" required>
+
+        <label class="auth-label" for="password">Password</label>
+        <input class="auth-input" id="password" name="password" type="password" placeholder="Create password" required>
+
+        <button class="auth-button" type="submit">Create account</button>
+      </form>
+
+      <div class="auth-link-row">
+        <span>Already have an account?</span>
+        <a href="login.html">Sign in</a>
+      </div>
+    </section>
+  </main>
+  <a href="../index.html" style="display:block;margin:24px auto 32px;max-width:240px;padding:12px 16px;border:1px solid currentColor;border-radius:999px;color:inherit;text-align:center;text-decoration:none;font-weight:700;">← Return to portfolio</a>
+
+  <script src="auth.js"></script>
+</body>
+</html>

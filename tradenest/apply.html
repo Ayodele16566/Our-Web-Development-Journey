@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply for a Job | NaiHire</title>
+    <meta name="description" content="Apply to jobs in Nigeria and create your hiring profile with your CV and WhatsApp number." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="theme-color" content="#f7f1ea" />
+    <link rel="stylesheet" href="tradenest.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <span class="brand-mark">N</span>
+          <span>NaiHire</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="tradenest-home.html">Home</a>
+          <a href="employer.html">Employers</a>
+          <a href="apply.html">Apply</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="employer.html" class="link-btn">Employer login</a>
+          <a href="apply.html" class="btn btn-primary">Apply now</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container apply-grid">
+        <div class="apply-copy reveal">
+          <span class="eyebrow dark">Join the talent pool</span>
+          <h2>Apply with your CV and WhatsApp number.</h2>
+          <p>
+            Create your profile, upload your CV, and let employers reach you with direct job opportunities.
+          </p>
+
+          <ul class="feature-list">
+            <li>Upload a CV and profile summary.</li>
+            <li>Add your WhatsApp number for quick contact.</li>
+            <li>Show your skills, location, and experience.</li>
+          </ul>
+        </div>
+
+        <div class="apply-form-wrap reveal">
+          <form id="candidateForm" class="apply-form">
+            <div class="input-row">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="e.g. Chidinma Adebayo" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+
+            <div class="input-row">
+              <label>
+                WhatsApp number
+                <input type="tel" name="whatsapp" placeholder="e.g. 08031234567" required />
+              </label>
+              <label>
+                Job interest
+                <select name="category" required>
+                  <option value="Design">Design</option>
+                  <option value="Tech">Tech</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Operations">Operations</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="input-row">
+              <label>
+                Role
+                <input type="text" name="role" placeholder="e.g. UI Designer" required />
+              </label>
+              <label>
+                Location
+                <input type="text" name="location" placeholder="e.g. Abuja" required />
+              </label>
+            </div>
+
+            <label>
+              Years of experience
+              <input type="text" name="experience" placeholder="e.g. 3 years" required />
+            </label>
+
+            <label>
+              Upload CV
+              <input type="file" name="cv" accept=".pdf,.doc,.docx" />
+            </label>
+
+            <label>
+              Short profile
+              <textarea name="summary" placeholder="Tell employers what you do best..." required></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary">Create my profile</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div class="brand footer-brand">
+          <span class="brand-mark">N</span>
+          <span>NaiHire</span>
+        </div>
+        <p>© <span data-year>2026</span> NaiHire. Hiring made simple for Nigeria.</p>
+      </div>
+    </footer>
+
+    <script src="tradenest.js"></script>
+  </body>
+</html>

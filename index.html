@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A student-made introduction to HTML, CSS, and JavaScript." />
+  <title>Our Web Development Journey</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Web, Unpacked home"><span class="brand-mark">&lt;/&gt;</span><span>web, unpacked</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#hosting">Hosting <span aria-hidden="true">↘</span></a>
+        <a href="#projects">Project Shelf <span aria-hidden="true">↘</span></a>
+        <a href="credits.html">Credits <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow">NHub Sevo / Coder Program</p>
+          <h1>Learning to build<br /><em>out loud.</em></h1>
+          <p class="hero-intro">A growing collection of websites, experiments, and ideas made while learning how the web works.</p>
+          <a class="project-button" href="#projects">View Project Shelf <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <div class="hero-note" aria-label="A note about this website">
+          <span class="note-label">currently learning / 01</span><p>Start simple.<br />Stay curious.<br /><strong>Keep building.</strong></p><span class="note-line"></span>
+        </div>
+      </section>
+
+      <section class="intro-band section-pad" id="languages">
+        <div class="section-heading"><p class="eyebrow">what we are learning</p><h2>The basics<br /><span>behind every page.</span></h2></div>
+        <p class="section-note">Every project starts with a few simple ideas. These are the three tools we are getting to know.</p>
+      </section>
+
+      <section class="language-grid section-pad" aria-label="Web language overview">
+        <article class="language-card html-card">
+          <div class="card-top"><span class="number">01</span><span class="card-symbol">&lt;/&gt;</span></div>
+          <p class="card-kicker">the structure</p><h3>HTML</h3>
+          <p class="card-copy">The parts of a page: headings, paragraphs, images, links, and everything that gives content its place.</p>
+        </article>
+        <article class="language-card css-card">
+          <div class="card-top"><span class="number">02</span><span class="card-symbol">✦</span></div>
+          <p class="card-kicker">the style</p><h3>CSS</h3>
+          <p class="card-copy">The colours, spacing, layout, and personality that turn a plain page into something that feels like ours.</p>
+        </article>
+        <article class="language-card js-card">
+          <div class="card-top"><span class="number">03</span><span class="card-symbol">{ }</span></div>
+          <p class="card-kicker">the action</p><h3>JavaScript</h3>
+          <p class="card-copy">The clicks, changes, and interactions that help a page respond when someone uses it.</p>
+        </article>
+      </section>
+
+      <section class="photo-strip section-pad" aria-label="Learning and making">
+        <figure class="photo-card photo-card-wide"><img src="https://i.pinimg.com/474x/df/c7/a7/dfc7a7d8fcda8bc79fa1c7e0118f9d4e.jpg" alt="A developer working across three computer monitors" /><figcaption>learning by doing</figcaption></figure>
+        <figure class="photo-card"><img src="https://i.pinimg.com/474x/40/49/77/404977338c23dacac4530707643d6860.jpg" alt="A web design interface on a computer screen" /><figcaption>one more idea</figcaption></figure>
+      </section>
+
+      <section class="hosting-section section-pad" id="hosting">
+        <div class="hosting-heading">
+          <div>
+            <p class="eyebrow">where a website lives</p>
+            <h2>Hosting makes<br /><span>the page public.</span></h2>
+          </div>
+          <p class="section-note">A hosting service stores a website's files on a server and delivers them to people when they visit its web address.</p>
+        </div>
+        <div class="hosting-grid">
+          <article class="hosting-card hosting-card-dark">
+            <span class="hosting-number">01 <b>→</b></span>
+            <h3>Store</h3>
+            <p>HTML, CSS, JavaScript, images, and other assets are kept on a server that stays connected to the internet.</p>
+          </article>
+          <article class="hosting-card hosting-card-lime">
+            <span class="hosting-number">02 <b>→</b></span>
+            <h3>Connect</h3>
+            <p>A domain name gives visitors an easy address, while DNS connects that address to the hosting server.</p>
+          </article>
+          <article class="hosting-card hosting-card-coral">
+            <span class="hosting-number">03</span>
+            <h3>Serve</h3>
+            <p>When someone opens the site, the host sends the right files to their browser so the page can load and work.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="projects-section section-pad" id="projects">
+        <div class="projects-heading"><div><p class="eyebrow">project shelf</p><h2>Things we<br /><span>have made.</span></h2></div><p class="section-note">These spaces are ready for our projects. We will keep adding to them as we learn.</p></div>
+        <div class="project-grid">
+          <a class="project-slot slot-lime" href="#" aria-label="Project slot one, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/736x/d0/78/8d/d0788d61b5477fe7e37e7c5bf22cc6e3.jpg" alt="A developer programming on a laptop" /><span class="slot-index">project / 01</span><span class="slot-icon">↗</span><div><p>Mines</p><h3>A little<br />HTML magic</h3></div><span class="slot-footer">Bwemasi <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-paper" href="last/index.html" aria-label="Project slot two, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/474x/9e/e9/93/9ee993e9f2ea55f3af1f6605888f3a50.jpg" alt="A person building a project on a laptop" /><span class="slot-index">project / 02</span><span class="slot-icon">↗</span><div><p>PlateWise</p><h3>Styled<br />with intent</h3></div><span class="slot-footer">Ayo <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-coral" href="tradenest/tradenest-home.html" aria-label="Project slot three, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/474x/40/49/77/404977338c23dacac4530707643d6860.jpg" alt="A web design interface on a computer" /><span class="slot-index">project / 03</span><span class="slot-icon">↗</span><div><p>Tradenest</p><h3>Click,<br />then wonder</h3></div><span class="slot-footer">Ethan <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-ink" href="DLZ67/LIB.html" aria-label="Project slot four, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/474x/df/c7/a7/dfc7a7d8fcda8bc79fa1c7e0118f9d4e.jpg" alt="A developer working across three computer monitors" /><span class="slot-index">project / 04</span><span class="slot-icon">↗</span><div><p>Libria</p><h3>Something<br />unexpected</h3></div><span class="slot-footer">Daniel <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-blue" href="project/index.html" aria-label="Project slot five, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/474x/9e/e9/93/9ee993e9f2ea55f3af1f6605888f3a50.jpg" alt="A person building a project on a laptop" /><span class="slot-index">project / 05</span><span class="slot-icon">↗</span><div><p>Bolacash</p><h3>Made for<br />the curious</h3></div><span class="slot-footer">add your link here <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-outline" href="Wisdom man/undex.html" aria-label="Project slot six, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/736x/d0/78/8d/d0788d61b5477fe7e37e7c5bf22cc6e3.jpg" alt="A developer programming on a laptop" /><span class="slot-index">project / 06</span><span class="slot-icon">↗</span><div><p>Digital Gallery</p><h3>Next up:<br />you</h3></div><span class="slot-footer">Wisdom <b>view project ↗</b></span>
+          </a>
+          <a class="project-slot slot-blue" href="#" aria-label="Project slot seven, add your project link">
+            <img class="project-thumb" src="https://i.pinimg.com/474x/df/c7/a7/dfc7a7d8fcda8bc79fa1c7e0118f9d4e.jpg" alt="A creative workspace with a laptop and notes" /><span class="slot-index">project / 07</span><span class="slot-icon">↗</span><div><p>Unknown</p><h3>New idea<br />coming soon</h3></div><span class="slot-footer">Jeremy<b>view project ↗</b></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer section-pad"><span>web, unpacked / 2026</span><p>built while learning, one page at a time.</p><a href="credits.html">thank you / credits ↗</a></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

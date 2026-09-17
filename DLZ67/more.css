@@ -1,0 +1,284 @@
+*{
+    padding: 0;
+    margin: 0;
+    top: 0;
+}
+
+.container{
+    background: linear-gradient(to right, lightgrey, grey);
+    height: fit-content;
+}
+
+.navbar{
+    display: flex;
+    padding: 46px ;
+    width: 1300px;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.more a{
+    color: white;
+}
+
+.navbar a{
+    color: white;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px 30px;
+    margin-top: 139px
+}
+
+.pic{
+    margin: 0 10px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pi{
+    width: 100%;
+    height: 320px;
+}
+
+.pictures{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.set{
+    text-align: center;
+    width: 200px;
+    height: 310px;
+    border-radius: 8px;
+    box-shadow: 5px 5px;
+    padding: 15px;
+}
+
+.borrow{
+    margin-left: 255px;
+    width: 90px;
+    background-color: #aecaca;
+    border-color: aquamarine;
+    transition: 1.2s;
+    margin-top: 20px;
+}
+
+.borrow1{
+    margin-left: 75px;
+    margin-top: 20px;
+    width: 90px;
+    height: auto;
+    background-color: #aecaca;
+    border-color: aquamarine;
+    transition: 1.2s;
+}
+
+.borrow2{
+    margin-left: 255px;
+    margin-top: 20px;
+    width: 90px;
+    height: auto;
+    background-color: #aecaca;
+    border-color: aquamarine;
+    transition: 1.2s;
+}
+
+.borrow3{
+    margin-left: 255px;
+    margin-top: 20px;
+    width: 90px;
+    height: auto;
+    background-color: #aecaca;
+    border-color: aquamarine;
+    transition: 1.2s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.borrow:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px black;
+    opacity: 2;
+    background-color: #aecaca;
+    cursor: pointer;
+}
+
+.borrow1:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px black;
+    opacity: 2;
+    background-color: #aecaca;
+    cursor: pointer;
+}
+
+.borrow2:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px black;
+    opacity: 2;
+    background-color: #aecaca;
+    cursor: pointer;
+}
+
+.borrow3:hover{
+    border-radius: 20px;
+    box-shadow: 2px 2px black;
+    opacity: 2;
+    background-color: #aecaca;
+    cursor: pointer;
+}
+
+.ul{
+    list-style: none;
+    margin-left: 400px;
+    gap: 40px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.ull{
+    list-style: none;
+    gap: 20px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.a{
+    text-decoration: none;
+    transition: 1s;
+}
+
+#home{
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.more{
+    background-color: black;
+    margin-top: 560px;
+    width: 1500px;
+    height: 80px;
+    font-weight: 900;
+    font-size: large;
+
+}
+
+.p{
+    margin-top: 100px;
+}
+
+@media (max-width: 786px) {
+    .container{
+        height: fit-content;
+        width: auto;
+    }
+
+    .navbar{
+        width: fit-content+5px;
+        height: 70px;
+        padding: 40px 0px;
+        font-size: 40px;
+    }
+
+    .more{
+        margin-top: 200px;
+        width: auto;
+    }
+
+    .ul{
+        margin-left: 100px;
+    }
+
+    .ull{
+        font-size: 7px;
+        margin-left: 10px;
+    }
+
+    #home{
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    .head{
+        font-size: 40px;
+    }
+
+    .SIGN{
+        margin: 0 0;
+
+    }
+
+    .pic{
+        height: auto;
+    }
+
+    .pi{
+        height: 100px;
+    }
+
+    .set{
+        width: 15%;
+        height: 20%;
+    }
+
+    h3{
+        font-size: 15px;
+    }
+
+    .borrow1{
+        margin-left: 20px;
+        width: 60px;
+    }
+
+    .borrow2{
+        margin-left: 95px;
+        width: 60px;
+    }
+
+    .borrow3{
+        margin-left: 95px;
+        width: 60px;
+    }
+
+    .borrow{
+        margin-left: 87px;
+        width: 60px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    ul{
+        margin-left: 100px;
+    }
+
+        .borrow1{
+        margin-left: 10px;
+    }
+
+    .borrow2{
+        margin-left: 15px;
+    }
+
+    .borrow3{
+        margin-left: 15px;
+    }
+
+    .borrow{
+        margin-left: 8px;
+    }
+}

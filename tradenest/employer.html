@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employer Portal | NaiHire</title>
+    <meta name="description" content="Employers can login and browse qualified Nigerian talent profiles." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="theme-color" content="#f7f1ea" />
+    <link rel="stylesheet" href="tradenest.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <span class="brand-mark">N</span>
+          <span>NaiHire</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="tradenest-home.html">Home</a>
+          <a href="employer.html">Employers</a>
+          <a href="apply.html">Apply</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="employer.html" class="link-btn">Employer login</a>
+          <a href="apply.html" class="btn btn-primary">Apply now</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container auth-shell reveal">
+        <div class="auth-header">
+          <span class="eyebrow dark">Employer access</span>
+          <h2>Log in to view candidates.</h2>
+        </div>
+
+        <form id="employerLoginForm" class="auth-form">
+          <div class="input-row">
+            <label>
+              Company name
+              <input type="text" name="companyName" placeholder="e.g. NextWave Labs" required />
+            </label>
+            <label>
+              Contact email
+              <input type="email" name="email" placeholder="hr@company.com" required />
+            </label>
+          </div>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Create a password" required />
+          </label>
+          <button type="submit" class="btn btn-primary">Log in as employer</button>
+        </form>
+
+        <div id="authStatus" class="auth-status" aria-live="polite"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div class="brand footer-brand">
+          <span class="brand-mark">N</span>
+          <span>NaiHire</span>
+        </div>
+        <p>© <span data-year>2026</span> NaiHire. Hiring made simple for Nigeria.</p>
+      </div>
+    </footer>
+
+    <script src="tradenest.js"></script>
+  </body>
+</html>

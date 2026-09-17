@@ -1,0 +1,237 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --ink: #17212b;
+    --ink-soft: #304453;
+    --paper: #f4efe6;
+    --paper-deep: #e7ded0;
+    --accent: #e27d4f;
+    --accent-dark: #b95532;
+    --line: rgba(23, 33, 43, 0.14);
+}
+
+body{
+    min-width: 320px;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+.container{
+    background:
+        radial-gradient(circle at 8% 12%, rgba(226, 125, 79, 0.16), transparent 24rem),
+        linear-gradient(135deg, var(--paper) 0%, #eee6da 52%, var(--paper-deep) 100%);
+    min-height: 100vh;
+}
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px clamp(16px, 4vw, 56px);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(23, 33, 43, 0.97);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(23, 33, 43, 0.16);
+}
+
+.navbar a{
+    color: white;
+}
+
+h1{
+    letter-spacing: 0.04em;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 42px clamp(16px, 4vw, 56px) 72px;
+}
+
+.main h2{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0 18px;
+    color: var(--ink);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.main h2::after{
+    content: "";
+    height: 2px;
+    flex: 1;
+    background: var(--line);
+}
+
+.pic{
+    display: block;
+    width: 100%;
+    height: 255px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.pictures{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.set{
+    flex: 1 1 190px;
+    text-align: center;
+    max-width: 240px;
+    min-height: 330px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.56);
+    box-shadow: 0 12px 22px rgba(23, 33, 43, 0.1);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.set:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 18px 28px rgba(23, 33, 43, 0.16);
+}
+
+.set h3{
+    margin: 12px 4px 2px;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+button.borrow,
+button.borrow1,
+button.borrow2,
+button.borrow3{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    min-height: 36px;
+    margin: 16px 8px 34px;
+    padding: 7px 12px;
+    border: 1px solid var(--accent-dark);
+    border-radius: 999px;
+    background: var(--accent);
+    transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+button.borrow a,
+button.borrow1 a,
+button.borrow2 a,
+button.borrow3 a{
+    color: white;
+    font-weight: 700;
+}
+
+a{
+    text-decoration: none;
+}
+
+button.borrow:hover,
+button.borrow1:hover,
+button.borrow2:hover,
+button.borrow3:hover{
+    background: var(--accent-dark);
+    box-shadow: 0 6px 12px rgba(185, 85, 50, 0.28);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    gap: 28px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.a{
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.a:hover,
+.a:focus-visible{
+    color: #ffb18d;
+}
+
+#home{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.more{
+    margin-top: 20px;
+    padding: 16px;
+    text-align: center;
+    font-weight: 900;
+    font-size: large;
+    border-top: 1px solid var(--line);
+}
+
+.p{
+    margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    .navbar{
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    ul{
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .head{
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+
+    .pic{
+        height: auto;
+    }
+
+    .set{
+        flex-basis: 150px;
+        min-height: 280px;
+    }
+
+    h3{
+        font-size: 15px;
+    }
+
+    .pic{
+        height: 220px;
+    }
+
+    button.borrow,
+    button.borrow1,
+    button.borrow2,
+    button.borrow3{
+        width: 76px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art Gallery Showcase</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .btn-btn{
+      border-radius: 20px;
+
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    figure {
+      margin: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    figure:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+    figcaption {
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #222;
+      color: white;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Art &amp; Image Gallery
+  </header>
+  <main>
+     <section class="hero-art reveal" aria-label="Featured art">
+            <figure class="art-frame big">
+              <img alt="Classical painting style artwork"
+                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80">
+              <figcaption class="caption">Featured exhibition</figcaption>
+            </figure>
+
+            <article class="stack">
+              <figure class="art-frame small">
+                <img alt="Modern fine art painting"
+                  src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=80">
+                <figcaption class="caption">Contemporary wall piece</figcaption>
+              </figure>
+
+              <figure class="art-frame small">
+                <img alt="Gallery artwork closeup"
+                  src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80">
+                <figcaption class="caption">Collector selection</figcaption>
+              </figure>
+            </article>
+          </section>
+        </section>
+      </header>
+
+     
+        </article>
+
+        <section class="featured-grid">
+          <figure class="art-frame big">
+            <img alt="Abstract painting in warm tones"
+              src="wallpaperflare.com_wallpaper (15).jpg">
+            <figcaption class="caption">Abstract atmospheres</figcaption>
+          </figure>
+    <figure>
+      <img src="download (1).jpg" alt="Abstract colorful painting" />
+      <figcaption>Abstract Colorful Painting</figcaption>
+    </figure>
+    <figure>
+      <img src="wallpaperflare.com_wallpaper (2).jpg" alt="Modern sculpture in gallery" />
+      <figcaption>Modern Sculpture</figcaption>
+    </figure>
+    <figure>
+      <img src="wallpaperflare.com_wallpaper (5).jpg" alt="Black and white photography" />
+      <figcaption>Black &amp; White Photography</figcaption>
+    </figure>
+    <figure>
+      <img src="download (3).jpg" alt="Street art mural" />
+      <figcaption>Street Art Mural</figcaption>
+    </figure>
+    <figure>
+      <img src="download (2).jpg" alt="Colorful geometric art" />
+      <figcaption>Detailed Painting</figcaption>
+    </figure>
+    <figure>
+      <img src="download (4).jpg" alt="Classic oil painting" />
+      <figcaption>Classic Oil Painting</figcaption>
+    </figure>
+  </main>
+  <footer>
+    &copy; 2026 Art Gallery Showcase. All rights reserved.
+  </footer>
+</body>
+</html>
+T

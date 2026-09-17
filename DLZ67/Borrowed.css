@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    top: 0;
+}
+
+.container{
+    background: linear-gradient(to right, lightgrey, grey);
+    height: fit-content;
+}
+
+.navbar{
+    display: flex;
+    padding: 46px ;
+    width: 1300px;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.navbar a{
+    color: white;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px 30px;
+}
+
+ul{
+    list-style: none;
+    margin-left: 400px;
+    gap: 40px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.a{
+    text-decoration: none;
+}
+
+.f{
+    display: flex;
+    margin-top: 120px;
+}
+
+#home{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.borrow{
+    margin-top: 50px;
+    margin-left: 170px;
+    justify-content: space-between;
+}
+
+h2{
+    margin-left: 20px;
+   font-weight: 900;
+}
+
+.pic{
+    background-color: black;
+    
+}
+
+.b{
+    display: flex;
+}
+
+.btn{
+    margin-top: 110px;
+    margin-left: 200px;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    background-color:white;
+    color: rgb(56, 236, 236);
+    transition: 0.3s;
+}
+
+.btn:hover{
+    box-shadow: 4px 4px black;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.p{
+    width: 250px;
+    box-shadow: 4px 4px black;
+    border-radius: 10px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.pict{
+    width: 250px;
+    box-shadow: 4px 4px black;
+    border-radius: 10px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .container{
+        height: 800px;
+    }
+
+    .navbar{
+        width: fit-content+5px;
+        height: 70px;
+        padding: 40px 0px;
+        font-size: 40px;
+    }
+
+    ul{
+        margin-left: 100px;
+    }
+
+    .head{
+        font-size: 40px;
+    }
+
+    .SIGN{
+        margin: 0 0;
+
+    }
+
+    .btn{
+        width: 70px;
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+
+    .pic{
+        height: auto;
+    }
+
+    .p{
+        width: 80%;
+        height: 100%;
+    }
+
+    .pict{
+        width: 25%;
+        height: 100%;
+    }
+
+    h3{
+        font-size: 15px;
+    }
+
+    .borrow1{
+        margin-left: 10px;
+    }
+
+    .borrow2{
+        margin-left: 15px;
+    }
+
+    .borrow3{
+        margin-left: 15px;
+    }
+
+    .borrow{
+        margin-left: 8px;
+    }
+}
