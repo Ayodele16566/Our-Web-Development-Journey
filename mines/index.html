@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mines</title>
+  <meta name="description" content="KMP Industrial Solution — Premier engineering and mineral processing across Nigeria.">
+  <title>KMP Minerals — Ochre & Iron</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Archivo:wght@400;500;600;700;800&display=swap"
@@ -43,10 +44,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
+    h1, h2, h3, h4 {
       font-family: 'Fraunces', serif;
       font-weight: 600;
       line-height: 1.08;
@@ -91,7 +89,8 @@
 
     header.scrolled {
       background: rgba(36, 26, 18, 0.92);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 14px 0;
       box-shadow: 0 4px 24px rgba(0, 0, 0, .25);
     }
@@ -107,12 +106,17 @@
       align-items: center;
       gap: 10px;
       color: #FBF7EF;
+      transition: opacity .2s ease;
+    }
+
+    .brand:hover {
+      opacity: .85;
     }
 
     .brand-mark {
       width: 34px;
       height: 34px;
-      border-radius: 3px;
+      border-radius: 4px;
       background: linear-gradient(155deg, var(--ochre) 0%, var(--rust) 65%, var(--rust-deep) 100%);
       display: flex;
       align-items: center;
@@ -136,7 +140,7 @@
 
     .nav-links {
       display: flex;
-      gap: 34px;
+      gap: 8px;
       align-items: center;
     }
 
@@ -144,22 +148,48 @@
       color: #EADFCB;
       font-size: 14.5px;
       font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
       opacity: .88;
-      transition: opacity .2s;
+      transition: opacity .2s, background .25s, color .25s;
+      position: relative;
     }
 
     .nav-links a:hover {
       opacity: 1;
+      background: rgba(243, 231, 212, 0.08);
+      color: #FDFAF3;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 16px;
+      right: 16px;
+      height: 1.5px;
+      background: var(--ochre-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
     }
 
     .nav-cta {
       background: var(--ochre);
-      color: var(--charcoal);
-      padding: 10px 22px;
-      border-radius: 2px;
+      color: var(--charcoal) !important;
+      padding: 10px 22px !important;
+      border-radius: 4px;
       font-weight: 700;
       font-size: 14px;
       transition: background .2s, transform .2s;
+    }
+
+    .nav-cta::after {
+      display: none !important;
     }
 
     .nav-cta:hover {
@@ -181,6 +211,20 @@
       width: 24px;
       height: 2px;
       background: #FBF7EF;
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
     @media(max-width:860px) {
@@ -196,7 +240,7 @@
         justify-content: center;
         align-items: flex-start;
         padding: 40px;
-        gap: 26px;
+        gap: 8px;
         transform: translateX(100%);
         transition: transform .35s ease;
       }
@@ -207,6 +251,12 @@
 
       .nav-links a {
         font-size: 18px;
+        padding: 14px 20px;
+        width: 100%;
+      }
+
+      .nav-links a::after {
+        display: none;
       }
 
       .nav-toggle {
@@ -255,9 +305,10 @@
       padding: 7px 16px;
       border-radius: 50px;
       font-size: 13.5px;
-      font-weight: 50;
+      font-weight: 500;
       margin-bottom: 26px;
       color: #F3E7D4;
+      backdrop-filter: blur(4px);
     }
 
     .eyebrow-tag::before {
@@ -266,6 +317,12 @@
       height: 7px;
       border-radius: 50%;
       background: var(--ochre-light);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
     }
 
     .hero h1 {
@@ -282,25 +339,26 @@
 
     .hero p {
       font-size: 19px;
-      max-width: 20px;
+      max-width: 520px;
       margin-top: 26px;
       color: #EADFCB;
       font-weight: 400;
+      line-height: 1.6;
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
-      margin-top: 20px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
 
     .btn-primary {
       background: var(--rust);
       color: #FDFAF3;
-      padding: 6px 10px;
-      border-radius: 2px;
-      font-weight: 20;
+      padding: 16px 30px;
+      border-radius: 4px;
+      font-weight: 600;
       font-size: 15.5px;
       display: inline-block;
       transition: background .2s, transform .2s;
@@ -309,6 +367,7 @@
 
     .btn-primary:hover {
       background: var(--rust-deep);
+      border-color: var(--rust-deep);
       transform: translateY(-2px);
     }
 
@@ -316,7 +375,7 @@
       border: 1px solid rgba(253, 250, 243, 0.5);
       color: #FDFAF3;
       padding: 16px 30px;
-      border-radius: 2px;
+      border-radius: 4px;
       font-weight: 600;
       font-size: 15.5px;
       display: inline-block;
@@ -343,8 +402,13 @@
     }
 
     .stat {
-      padding: 10px 10px;
+      padding: 36px 28px;
       border-left: 1px solid rgba(243, 231, 212, 0.14);
+      transition: background .3s ease;
+    }
+
+    .stat:hover {
+      background: rgba(243, 231, 212, 0.04);
     }
 
     .stat:first-child {
@@ -354,14 +418,15 @@
     .stat .num {
       font-family: 'Fraunces', serif;
       font-size: 2.5rem;
-      font-weight: 50;
+      font-weight: 500;
       color: var(--ochre-light);
+      line-height: 1;
     }
 
     .stat .label {
       font-size: 13.5px;
       color: #C9BBA1;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     @media(max-width:760px) {
@@ -399,8 +464,10 @@
     .section-head .kicker {
       color: var(--rust);
       font-weight: 700;
-      font-size: 10px;
-      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
       display: block;
     }
 
@@ -410,10 +477,11 @@
     }
 
     .section-head p {
-      margin-top: 10px;
-      font-size: 10px;
+      margin-top: 14px;
+      font-size: 16px;
       color: #5B4C3B;
       max-width: 540px;
+      line-height: 1.6;
     }
 
     /* ---------- ABOUT ---------- */
@@ -437,13 +505,18 @@
 
     .about-media {
       position: relative;
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
       aspect-ratio: 4/5;
     }
 
     .about-media img {
       filter: saturate(1.05);
+      transition: transform .5s ease;
+    }
+
+    .about-media:hover img {
+      transform: scale(1.03);
     }
 
     .about-media .tag {
@@ -453,7 +526,7 @@
       background: var(--cream);
       color: var(--charcoal);
       padding: 14px 18px;
-      border-radius: 3px;
+      border-radius: 4px;
       font-size: 13.5px;
       font-weight: 600;
       max-width: 220px;
@@ -464,6 +537,7 @@
       color: #4A3D2E;
       font-size: 16.5px;
       margin-bottom: 18px;
+      line-height: 1.65;
     }
 
     .about-text p:first-of-type {
@@ -474,7 +548,7 @@
       line-height: 1.4;
     }
 
-    /* ---------- MINERALS ---------- */
+    /* ---------- AIM ---------- */
     .aim {
       background: var(--sand-2);
     }
@@ -497,6 +571,7 @@
       aspect-ratio: 3/4;
       overflow: hidden;
       color: #FDFAF3;
+      background: var(--charcoal-2);
     }
 
     .aim-card::after {
@@ -506,34 +581,38 @@
       background: linear-gradient(180deg, rgba(20, 14, 9, 0.05) 0%, rgba(20, 14, 9, 0.85) 100%);
     }
 
+    .aim-card:hover::after {
+      background: linear-gradient(180deg, rgba(20, 14, 9, 0.05) 0%, rgba(20, 14, 9, 0.7) 100%);
+    }
+
     .aim-info {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 2;
-      padding: 26px;
+      padding: 30px;
     }
 
     .aim-info .idx {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--ochre-light);
-      font-weight: 10;
-      letter-spacing: .03em;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
     .aim-info h3 {
       font-size: 1.5rem;
-      margin-top: 6px;
+      margin-top: 8px;
       color: #FDFAF3;
     }
 
     .aim-info p {
-      font-size: 14px;
+      font-size: 14.5px;
       color: #DCCEB4;
-      margin-top: 8px;
-      max-width: 100px;
-      height: 10px;
+      margin-top: 10px;
+      line-height: 1.55;
     }
 
     /* ---------- PROCESS ---------- */
@@ -551,8 +630,13 @@
       grid-template-columns: 90px 1fr 1.1fr;
       gap: 36px;
       align-items: flex-start;
-      padding: 34px 0;
+      padding: 38px 0;
       border-top: 1px solid #DFCFAE;
+      transition: background .3s ease;
+    }
+
+    .process-row:hover {
+      background: rgba(200, 150, 62, 0.04);
     }
 
     .process-row:last-child {
@@ -576,12 +660,21 @@
       color: #5B4C3B;
       font-size: 15.5px;
       max-width: 420px;
+      line-height: 1.6;
     }
 
     .process-img {
-      border-radius: 3px;
+      border-radius: 4px;
       overflow: hidden;
       aspect-ratio: 16/10;
+    }
+
+    .process-img img {
+      transition: transform .5s ease;
+    }
+
+    .process-img:hover img {
+      transform: scale(1.04);
     }
 
     @media(max-width:900px) {
@@ -594,7 +687,7 @@
       }
     }
 
-    /* ---------- COMMUNITY / SUSTAINABILITY ---------- */
+    /* ---------- COMMUNITY ---------- */
     .community {
       background: var(--green-deep);
       color: var(--sand);
@@ -626,19 +719,28 @@
       font-size: 16.5px;
       margin-top: 18px;
       max-width: 480px;
+      line-height: 1.65;
     }
 
     .community-media {
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
       aspect-ratio: 4/3;
+    }
+
+    .community-media img {
+      transition: transform .5s ease;
+    }
+
+    .community-media:hover img {
+      transform: scale(1.03);
     }
 
     .pledge-list {
       margin-top: 30px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
     .pledge {
@@ -659,6 +761,7 @@
     .pledge div {
       font-size: 15.5px;
       color: #DCE7DC;
+      line-height: 1.6;
     }
 
     .pledge strong {
@@ -681,6 +784,16 @@
     .strip .cell {
       aspect-ratio: 1/1;
       overflow: hidden;
+    }
+
+    .strip .cell img {
+      transition: transform .5s ease, filter .5s ease;
+      filter: saturate(.85);
+    }
+
+    .strip .cell:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.1);
     }
 
     @media(max-width:760px) {
@@ -706,9 +819,9 @@
       content: '';
       position: absolute;
       width: 640px;
-      height: 100px;
+      height: 320px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(166, 67, 42, 0.35) 0%, rgba(166, 67, 42, 0) 70%);
+      background: radial-gradient(circle, rgba(166, 67, 42, 0.3) 0%, rgba(166, 67, 42, 0) 70%);
       top: -220px;
       right: -160px;
       z-index: 0;
@@ -735,11 +848,12 @@
       max-width: 480px;
     }
 
-    .contact>.contact-inner>div:first-child p {
+    .contact .contact-inner > div:first-child p {
       color: #CBBDA2;
       margin-top: 18px;
       font-size: 16.5px;
       max-width: 440px;
+      line-height: 1.65;
     }
 
     .contact-cta {
@@ -754,7 +868,7 @@
     .contact-card {
       background: var(--charcoal-2);
       border: 1px solid rgba(243, 231, 212, 0.12);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 36px;
     }
 
@@ -762,7 +876,7 @@
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      padding: 16px 0;
+      padding: 18px 0;
       border-top: 1px solid rgba(243, 231, 212, 0.1);
     }
 
@@ -772,8 +886,8 @@
     }
 
     .contact-card .ic {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: rgba(200, 150, 62, 0.15);
       display: flex;
@@ -787,14 +901,19 @@
     .contact-card .label {
       font-size: 12.5px;
       color: #B7A98D;
-      text-transform: none;
-      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
     }
 
     .contact-card .value {
       font-size: 15.5px;
       color: #FDFAF3;
       font-weight: 500;
+    }
+
+    .contact-card .value a {
+      transition: color .2s ease;
     }
 
     .contact-card .value a:hover {
@@ -824,6 +943,7 @@
       font-size: 13px;
     }
 
+    /* ---------- SELECTION & FOCUS ---------- */
     ::selection {
       background: var(--ochre);
       color: var(--charcoal);
@@ -833,28 +953,46 @@
       outline: 2px solid var(--ochre-light);
       outline-offset: 2px;
     }
+
+    /* ---------- MOBILE NAV OVERLAY ---------- */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .5);
+      z-index: 40;
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+
+    .nav-overlay.open {
+      display: block;
+      opacity: 1;
+    }
   </style>
 </head>
 
-
 <body>
+
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <header id="site-header">
     <div class="wrap">
       <nav>
         <a href="#top" class="brand">
-          <div class="brand-mark">O</div>
-          <div class="brand-name">Ochre&nbsp;&&nbsp;Iron <span>Minerals</span></div>
+          <div class="brand-mark">K</div>
+          <div class="brand-name">KMP&nbsp;<span>Minerals</span></div>
         </a>
         <div class="nav-links" id="nav-links">
           <a href="#about">About</a>
-          <a href="#aim">aim</a>
+          <a href="#aim">What We Mine</a>
           <a href="#process">Operations</a>
           <a href="#community">Community</a>
-          <a href="#contact" class="nav-cta">Contact us</a>
+          <a href="#contact" class="nav-cta">Contact Us</a>
         </div>
-        <button class="nav-toggle" id="nav-toggle"
-          aria-label="Open menu"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </div>
   </header>
@@ -863,10 +1001,9 @@
     <img src="https://images.unsplash.com/photo-1562167055-1afdc7ac7bca?fm=jpg&q=80&w=2000&auto=format&fit=crop"
       alt="Quarry workers on a mineral processing site">
     <div class="wrap hero-content">
-      <span class="eyebrow-tag">KMP works · Federal Republic of Nigeria</span>
-      <h1>brighter future <em>mining progress</em> — we bring it up responsibly</h1>
-      <p>providing innovation sustainable and scaled infrastructure solution across nigeria .the company drives
-        technological evolution and physical infrastructure execution across Nigeria.</p>
+      <span class="eyebrow-tag">KMP Works · Federal Republic of Nigeria</span>
+      <h1>Brighter futures through <em>responsible mining</em> — we bring it up, responsibly</h1>
+      <p>Providing innovative, sustainable, and scaled infrastructure solutions across Nigeria. The company drives technological evolution and physical infrastructure execution nationwide.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Talk to our team</a>
         <a href="#aim" class="btn-outline">See what we mine</a>
@@ -877,20 +1014,20 @@
   <div class="stats">
     <div class="wrap stats-inner">
       <div class="stat">
-        <div class="num">8</div>
-        <div class="label">hours</div>
+        <div class="num">6+</div>
+        <div class="label">Years Operating</div>
       </div>
       <div class="stat">
-        <div class="num">daily</div>
-        <div class="label">range site</div>
+        <div class="num">Daily</div>
+        <div class="label">Site Operations</div>
       </div>
       <div class="stat">
-        <div class="num">multipl</div>
-        <div class="label">taskin prigress </div>
+        <div class="num">Multiple</div>
+        <div class="label">Projects in Progress</div>
       </div>
       <div class="stat">
-        <div class="num" yrs></div>
-        <div class="label">Operating across Nigeria</div>
+        <div class="num">Nationwide</div>
+        <div class="label">Operating Across Nigeria</div>
       </div>
     </div>
   </div>
@@ -898,14 +1035,13 @@
   <section class="about" id="about">
     <div class="wrap about-grid">
       <div class="about-media">
-        <img src="Screenshot_20260904-131332.png" alt="">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="KMP team on site">
         <div class="tag">Every site run by a locally hired operations team</div>
       </div>
       <div class="about-text">
-        <span class="section-head kicker" style="display:block; margin-bottom:14px;">company overview</span>
-        <p>KMP industrial solution resource limited is a premier dynamic engeniering and engineering aligned general
-          contract firm incorperated  under the companies and aligned matters at from 2020 of the fedral
-          republic of Nigeria</p>
+        <span class="section-head kicker" style="display:block; margin-bottom:14px;">Company Overview</span>
+        <p>KMP Industrial Solution Resource Limited is a premier dynamic engineering and engineering-aligned general contracting firm, incorporated under the Companies and Allied Matters Act of 2020 of the Federal Republic of Nigeria.</p>
+        <p>We specialise in mineral exploration, extraction, and processing — working closely with local communities and government bodies to deliver sustainable outcomes across every project we undertake.</p>
       </div>
     </div>
   </section>
@@ -913,45 +1049,52 @@
   <section class="aim" id="aim">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">where we are found</span>
-        <h2></h2>
-        <p>vwazi,kwang,reyfield,jos,plateau state nigeria.</p>
+        <span class="kicker">Where We Are Found</span>
+        <h2>Our Locations</h2>
+        <p>Vwakmi, Kwang, Reyfield, Jos — Plateau State, Nigeria.</p>
       </div>
     </div>
     <div class="aim-grid">
       <div class="aim-card">
-        <div class="aim-info"><span class="idx">we want</span>
-          <p>cooperation and smooth work environment.</p>
+        <div class="aim-info">
+          <span class="idx">What We Want</span>
+          <h3>Partnership</h3>
+          <p>Cooperation and a smooth, professional work environment for all stakeholders.</p>
         </div>
       </div>
       <div class="aim-card">
-        <div class="aim-info"><span class="idx">we give</span>
-          <p>clean affordable work done.</p>
+        <div class="aim-info">
+          <span class="idx">What We Give</span>
+          <h3>Quality Results</h3>
+          <p>Clean, affordable, and professionally delivered work — every time.</p>
         </div>
       </div>
       <div class="aim-card">
-        <div class="aim-info"><span class="idx">you should expect</span>
-          <p>profit from a reliable source .</p>
+        <div class="aim-info">
+          <span class="idx">What To Expect</span>
+          <h3>Reliable Returns</h3>
+          <p>Consistent profit and value from a dependable, transparent source.</p>
         </div>
       </div>
-    </div>
     </div>
   </section>
 
-  <section class="process" id="process"n>
+  <section class="process" id="process">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">How we work</span>
-        <h2>for work process</h2>
-        <p>contact any contractor stated and negociation will take place.</p>
+        <span class="kicker">How We Work</span>
+        <h2>Our Process</h2>
+        <p>Contact any of our stated contractors and negotiations will take place directly.</p>
       </div>
       <div class="process-list">
         <div class="process-row">
           <div class="process-step">01</div>
           <div class="process-body">
-            <h3>Explore & permit</h3>
-            <p>Geological survey and licensing with the Ministry of Solid Minerals Development before any ground is
-              broken.</p>
+            <h3>Explore & Permit</h3>
+            <p>Geological survey and licensing with the Ministry of Solid Minerals Development before any ground is broken.</p>
+          </div>
+          <div class="process-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Geological survey work">
           </div>
         </div>
         <div class="process-row">
@@ -960,19 +1103,28 @@
             <h3>Extract</h3>
             <p>Trained crews work open-pit and shaft sites under strict safety protocols and daily inspection.</p>
           </div>
+          <div class="process-img">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Mineral extraction site">
+          </div>
         </div>
         <div class="process-row">
           <div class="process-step">03</div>
           <div class="process-body">
             <h3>Process</h3>
-            <p>tin, washed on site, cutting transport loads and creating local processing jobs.</p>
+            <p>Minerals are washed and processed on site, cutting transport loads and creating local processing jobs.</p>
+          </div>
+          <div class="process-img">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Mineral processing facility">
           </div>
         </div>
         <div class="process-row">
           <div class="process-step">04</div>
           <div class="process-body">
-            <h3>Export & supply</h3>
+            <h3>Export & Supply</h3>
             <p>Minerals move to domestic industry and export markets with full chain-of-custody documentation.</p>
+          </div>
+          <div class="process-img">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Mineral export logistics">
           </div>
         </div>
       </div>
@@ -982,29 +1134,25 @@
   <section class="community" id="community">
     <div class="wrap community-grid">
       <div>
-        <span class="kicker"
-          style="color:var(--ochre-light); font-weight:700; font-size:14px; display:block; margin-bottom:14px;">achivement</span>
-        <h2>our vision</h2>
+        <span class="kicker" style="color:var(--ochre-light); font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:14px;">Our Vision</span>
+        <h2>Professional ethical standards guide our operations — always.</h2>
         <div class="pledge-list">
-          <p>professional ethical standard guide our operations always</p>
           <div class="pledge">
             <div class="pledge-dot"></div>
-            <div><strong>innovation</strong>.</div>
+            <div><strong>Innovation</strong>We embrace modern techniques and technology to improve every stage of our work.</div>
           </div>
           <div class="pledge">
             <div class="pledge-dot"></div>
-            <div><strong>Land restored, not abandoned</strong>Closed pits are backfilled and replanted under our
-              reclamation plan.</div>
+            <div><strong>Land Restored, Not Abandoned</strong>Closed pits are backfilled and replanted under our reclamation plan.</div>
           </div>
           <div class="pledge">
             <div class="pledge-dot"></div>
-            <div><strong>Royalties paid in full</strong>State and community royalties are remitted on schedule, every
-              quarter.</div>
+            <div><strong>Royalties Paid in Full</strong>State and community royalties are remitted on schedule, every quarter.</div>
           </div>
         </div>
       </div>
       <div class="community-media">
-        <img src="Screenshot_20250903-070437.png" alt="">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="KMP community work">
       </div>
     </div>
   </section>
@@ -1012,13 +1160,11 @@
   <section class="contact" id="contact">
     <div class="wrap contact-inner">
       <div>
-        <span class="kicker"
-          style="color:var(--ochre-light); font-weight:700; font-size:14px; display:block; margin-bottom:14px;">Get in
-          touch</span>
+        <span class="kicker" style="color:var(--ochre-light); font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:14px;">Get In Touch</span>
         <h2>Have land, a licence, or a supply need? Let's talk.</h2>
-        <p>Whether you're a community liaison, a state ministry, reach our team directly. No account needed.</p>
+        <p>Whether you're a community liaison, a state ministry, or an industry partner — reach our team directly. No account needed.</p>
         <div class="contact-cta">
-          <a href="mailto:info@ochreandiron.ng?subject=Enquiry%20from%20website" class="btn-primary">Contact us</a>
+          <a href="mailto:info@kmp.org.ng?subject=Enquiry%20from%20website" class="btn-primary">Contact Us</a>
         </div>
       </div>
       <div class="contact-card">
@@ -1026,34 +1172,28 @@
           <div class="ic">@</div>
           <div>
             <div class="label">Email</div>
-            <div class="value"><a href=></a>
-              <p>KMP.ORG.NG</p>
-            </div>
+            <div class="value"><a href="mailto:info@kmp.org.ng">info@kmp.org.ng</a></div>
           </div>
         </div>
         <div class="row">
           <div class="ic">☎</div>
           <div>
             <div class="label">Phone</div>
-            <div class="value"><a href=></a>
-              <p>08035699263</p>
-            </div>
+            <div class="value"><a href="tel:+2348035699263">080 3569 9263</a></div>
           </div>
         </div>
         <div class="row">
           <div class="ic">✎</div>
           <div>
-            <div class="label">Head office</div>
-            <div class="value">
-              <p>located in kwang</p>
-            </div>
+            <div class="label">Head Office</div>
+            <div class="value">Kwang, Plateau State</div>
           </div>
         </div>
         <div class="row">
           <div class="ic">◷</div>
           <div>
-            <div class="label">Office hours</div>
-            <div class="value">ever day – – </div>
+            <div class="label">Office Hours</div>
+            <div class="value">Monday – Saturday, 8am – 5pm</div>
           </div>
         </div>
       </div>
@@ -1062,22 +1202,38 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <div class="brand-name"></div>
-      <div class="fine">© </div>
+      <div class="brand-name">KMP Minerals</div>
+      <div class="fine">© 2026 KMP Industrial Solution Resource Limited. All rights reserved.</div>
     </div>
   </footer>
-  
 
   <script>
     const header = document.getElementById('site-header');
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navOverlay = document.getElementById('nav-overlay');
+
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
     });
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    function toggleNav() {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      navOverlay.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    }
+
+    navToggle.addEventListener('click', toggleNav);
+    navOverlay.addEventListener('click', toggleNav);
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) toggleNav();
+      });
+    });
   </script>
 
 </body>
+
 </html>

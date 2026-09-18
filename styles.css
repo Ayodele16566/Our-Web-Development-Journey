@@ -44,35 +44,99 @@ a {
 /* Navigation */
 .topbar {
   align-items: center;
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  background: rgba(23, 35, 43, .72);
+  border-bottom: 1px solid rgba(240, 234, 219, .08);
   display: flex;
   height: 5.5rem;
   justify-content: space-between;
+  left: 0;
   padding: 0 clamp(1.25rem, 6vw, 7.5rem);
-  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .brand {
   align-items: center;
   display: flex;
   font-family: var(--mono);
-  font-size: .78rem;
+  font-size: .82rem;
   gap: .65rem;
   letter-spacing: .04em;
+  transition: opacity .2s ease;
+}
+
+.brand:hover {
+  opacity: .8;
 }
 
 .brand-mark {
+  background: rgba(228, 189, 85, .12);
+  border: 1px solid rgba(228, 189, 85, .25);
+  border-radius: .4rem;
   color: var(--lime);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  padding: .3rem .5rem;
 }
 
 .nav-links {
+  align-items: center;
   display: flex;
-  gap: 2.1rem;
+  gap: .5rem;
   margin-left: auto;
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
-.nav-links a,
+.nav-links a {
+  align-items: center;
+  border-radius: .45rem;
+  color: var(--muted);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: .72rem;
+  gap: .35rem;
+  letter-spacing: .02em;
+  padding: .55rem .85rem;
+  position: relative;
+  transition: color .25s ease, background .25s ease;
+}
+
+.nav-links a::after {
+  background: var(--lime);
+  bottom: .2rem;
+  content: "";
+  height: 1.5px;
+  left: .85rem;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+  width: calc(100% - 1.7rem);
+}
+
+.nav-links a:hover {
+  background: rgba(228, 189, 85, .08);
+  color: var(--paper);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a:hover span {
+  color: var(--lime);
+  transform: translate(1px, -1px);
+}
+
+.nav-links span {
+  color: var(--lime);
+  font-size: .85rem;
+  margin-left: .15rem;
+  transition: color .25s ease, transform .25s ease;
+}
+
 .footer a {
   color: var(--lime);
   font-family: var(--mono);
@@ -80,14 +144,8 @@ a {
   transition: color .2s ease;
 }
 
-.nav-links a:hover,
 .footer a:hover {
   color: var(--paper);
-}
-
-.nav-links span {
-  font-size: 1rem;
-  margin-left: .25rem;
 }
 
 /* Hero */
@@ -953,6 +1011,15 @@ h2 {
 @media (max-width: 800px) {
   .topbar {
     height: 4.5rem;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+
+  .brand {
+    font-size: .75rem;
+  }
+
+  .nav-links {
+    margin-right: 0;
   }
 
   .hero {
@@ -1048,11 +1115,16 @@ h2 {
 
 @media (max-width: 500px) {
   .nav-links {
-    gap: .8rem;
+    gap: .25rem;
   }
 
   .nav-links a {
-    font-size: .6rem;
+    font-size: .62rem;
+    padding: .45rem .55rem;
+  }
+
+  .nav-links span {
+    display: none;
   }
 
   h1 {
