@@ -67,6 +67,20 @@
       text-align: center;
       background-color: #f0f0f0;
     }
+    .download-button {
+      display: block;
+      margin: 0 1rem 1rem;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      background: #222;
+      color: white;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .download-button:hover {
+      background: #555;
+    }
     footer {
       text-align: center;
       padding: 1rem;
@@ -88,6 +102,7 @@
               <img alt="Classical painting style artwork"
                 src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80">
               <figcaption class="caption">Featured exhibition</figcaption>
+              <a class="download-button" href="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80" download="featured-exhibition.jpg">Download image</a>
             </figure>
 
             <article class="stack">
@@ -95,12 +110,14 @@
                 <img alt="Modern fine art painting"
                   src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=80">
                 <figcaption class="caption">Contemporary wall piece</figcaption>
+                <a class="download-button" href="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=80" download="contemporary-wall-piece.jpg">Download image</a>
               </figure>
 
               <figure class="art-frame small">
                 <img alt="Gallery artwork closeup"
                   src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80">
                 <figcaption class="caption">Collector selection</figcaption>
+                <a class="download-button" href="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80" download="collector-selection.jpg">Download image</a>
               </figure>
             </article>
           </section>
@@ -115,35 +132,74 @@
             <img alt="Abstract painting in warm tones"
               src="wallpaperflare.com_wallpaper (15).jpg">
             <figcaption class="caption">Abstract atmospheres</figcaption>
+            <a class="download-button" href="wallpaperflare.com_wallpaper (15).jpg" download="abstract-atmospheres.jpg">Download image</a>
           </figure>
     <figure>
       <img src="download (1).jpg" alt="Abstract colorful painting" />
       <figcaption>Abstract Colorful Painting</figcaption>
+      <a class="download-button" href="download (1).jpg" download="abstract-colorful-painting.jpg">Download image</a>
     </figure>
     <figure>
       <img src="wallpaperflare.com_wallpaper (2).jpg" alt="Modern sculpture in gallery" />
       <figcaption>Modern Sculpture</figcaption>
+      <a class="download-button" href="wallpaperflare.com_wallpaper (2).jpg" download="modern-sculpture.jpg">Download image</a>
     </figure>
     <figure>
       <img src="wallpaperflare.com_wallpaper (5).jpg" alt="Black and white photography" />
       <figcaption>Black &amp; White Photography</figcaption>
+      <a class="download-button" href="wallpaperflare.com_wallpaper (5).jpg" download="black-and-white-photography.jpg">Download image</a>
     </figure>
     <figure>
       <img src="download (3).jpg" alt="Street art mural" />
       <figcaption>Street Art Mural</figcaption>
+      <a class="download-button" href="download (3).jpg" download="street-art-mural.jpg">Download image</a>
     </figure>
     <figure>
       <img src="download (2).jpg" alt="Colorful geometric art" />
       <figcaption>Detailed Painting</figcaption>
+      <a class="download-button" href="download (2).jpg" download="detailed-painting.jpg">Download image</a>
     </figure>
     <figure>
       <img src="download (4).jpg" alt="Classic oil painting" />
       <figcaption>Classic Oil Painting</figcaption>
+      <a class="download-button" href="download (4).jpg" download="classic-oil-painting.jpg">Download image</a>
     </figure>
   </main>
   <footer>
     &copy; 2026 Art Gallery Showcase. All rights reserved.
   </footer>
+  <script>
+    document.querySelectorAll('.download-button').forEach(button => {
+      button.addEventListener('click', async event => {
+        const imageUrl = button.href;
+
+        if (!imageUrl.startsWith('http')) {
+          return;
+        }
+
+        event.preventDefault();
+
+        try {
+          const response = await fetch(imageUrl, { mode: 'cors' });
+          if (!response.ok) {
+            throw new Error(`Image request failed: ${response.status}`);
+          }
+
+          const imageBlob = await response.blob();
+          const temporaryUrl = URL.createObjectURL(imageBlob);
+          const downloadLink = document.createElement('a');
+          downloadLink.href = temporaryUrl;
+          downloadLink.download = button.download;
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          downloadLink.remove();
+          URL.revokeObjectURL(temporaryUrl);
+        } catch (error) {
+          window.location.href = imageUrl;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 T

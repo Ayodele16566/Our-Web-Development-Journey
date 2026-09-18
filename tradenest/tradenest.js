@@ -40,7 +40,7 @@ const candidateData = [
     whatsapp: '08031234567',
     summary: 'Creates user-friendly interfaces and brand-focused product designs for startups.',
     skills: ['Figma', 'UX Research', 'Branding'],
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=900'
   },
   {
     name: 'Daniel Okafor',
@@ -51,7 +51,7 @@ const candidateData = [
     whatsapp: '08055567890',
     summary: 'Builds responsive business dashboards and landing pages for growing companies.',
     skills: ['React', 'JavaScript', 'CSS'],
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=900'
   },
   {
     name: 'Blessing Eze',
@@ -62,7 +62,7 @@ const candidateData = [
     whatsapp: '08076544321',
     summary: 'Strong in B2B sales, lead generation, and converting interest into customer retention.',
     skills: ['CRM', 'Negotiation', 'Outbound Sales'],
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=900'
   },
   {
     name: 'Ifeanyi Martins',
@@ -73,7 +73,7 @@ const candidateData = [
     whatsapp: '08021987654',
     summary: 'Keeps operations moving with coordination, reporting, and process improvement.',
     skills: ['Operations', 'Process Flow', 'Planning'],
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=900'
   },
   {
     name: 'Grace Adeyemi',
@@ -84,7 +84,7 @@ const candidateData = [
     whatsapp: '08099887766',
     summary: 'Plans content that connects local brands with wider audiences and stronger customer engagement.',
     skills: ['Copywriting', 'Content', 'Strategy'],
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=900'
   },
   {
     name: 'Tobi Akin',
@@ -95,7 +95,7 @@ const candidateData = [
     whatsapp: '08033445566',
     summary: 'Helps customers feel supported and connected through sharp service and clear communication.',
     skills: ['Support', 'Customer Care', 'Communication'],
-    image: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=900'
   }
 ];
 
