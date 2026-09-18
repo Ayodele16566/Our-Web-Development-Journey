@@ -218,6 +218,33 @@
       background:white;
     }
 
+    .image-download{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.45rem;
+      margin:.75rem 0 0;
+      padding:.65rem 1rem;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:var(--ink);
+      color:#fff;
+      font-size:.78rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .2s ease, background .2s ease;
+    }
+
+    .image-download:hover{
+      background:var(--accent);
+      transform:translateY(-2px);
+    }
+
+    .image-download:disabled{
+      cursor:wait;
+      opacity:.7;
+    }
+
     .hero-art{
       display:grid;
       grid-template-columns:1fr .82fr;
@@ -832,6 +859,52 @@
     }
 
     setRevealObservers();
+
+    function getDownloadName(image){
+      const label = image.alt || 'gallery-image';
+      const safeLabel = label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return `${safeLabel || 'gallery-image'}.jpg`;
+    }
+
+    function addDownloadButtons(){
+      document.querySelectorAll('main img').forEach(image => {
+        if (image.nextElementSibling?.classList.contains('image-download')) return;
+
+        const button = document.createElement('button');
+        button.className = 'image-download';
+        button.type = 'button';
+        button.textContent = 'Download image';
+        button.addEventListener('click', async () => {
+          button.disabled = true;
+          button.textContent = 'Preparing download...';
+
+          try {
+            const response = await fetch(image.currentSrc || image.src, { mode: 'cors' });
+            if (!response.ok) throw new Error(`Image request failed: ${response.status}`);
+
+            const imageBlob = await response.blob();
+            const temporaryUrl = URL.createObjectURL(imageBlob);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = temporaryUrl;
+            downloadLink.download = getDownloadName(image);
+            downloadLink.click();
+            URL.revokeObjectURL(temporaryUrl);
+          } catch (error) {
+            const downloadLink = document.createElement('a');
+            downloadLink.href = image.currentSrc || image.src;
+            downloadLink.download = getDownloadName(image);
+            downloadLink.click();
+          } finally {
+            button.disabled = false;
+            button.textContent = 'Download image';
+          }
+        });
+
+        image.insertAdjacentElement('afterend', button);
+      });
+    }
+
+    addDownloadButtons();
   </script>
 </body>
 </html>
