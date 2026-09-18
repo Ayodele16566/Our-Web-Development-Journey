@@ -133,3 +133,43 @@ display: block;
   font-weight: 600;
   text-decoration: none;
 }
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 24px 12px;
+  }
+
+  .form-card {
+    padding: 28px 20px;
+    border-radius: 10px;
+  }
+
+  .form-card h2 {
+    font-size: 22px;
+  }
+
+  .form-card .subtitle {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .input-group input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .btn-submit {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .form-card {
+    padding: 20px 16px;
+  }
+
+  .form-card h2 {
+    font-size: 20px;
+  }
+}

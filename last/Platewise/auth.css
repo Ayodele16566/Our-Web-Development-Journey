@@ -171,3 +171,46 @@
 .welcome-actions .auth-button {
   width: auto;
 }
+
+@media (max-width: 600px) {
+  .auth-shell {
+    width: calc(100vw - 24px);
+    margin: 24px auto;
+  }
+
+  .auth-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .auth-head h1 {
+    font-size: clamp(28px, 6vw, 40px);
+    margin: 12px 0 10px;
+  }
+
+  .auth-input {
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .auth-button {
+    padding: 12px 20px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .auth-card {
+    padding: 20px 16px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+}
